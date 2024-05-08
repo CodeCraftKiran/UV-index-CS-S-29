@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css"
+</head>
+<body>
+    <div>
+        <h1>UV INDEX</h1>
+        <div>
+            <h2>Check the UV index of your location </h2>
+            <form action="/" method="POST">
+                <label>ENTER LATITUDE</label>
+                <input name="lat" type="text">
+                <label>ENTER LONGITUDE</label>
+                <input name="lng" type="text">
+                <button type="submit">CHECK</button>
+            </form>
+            <h3><a href="https://www.latlong.net/" target="_blank">SEARCH FOR YOUR LOCATION'S LONGITUDE AND LATITUDE</a></h3>
+            <br>
+            <h3>
+                <% if (locals.message > 5) { %>
+                    TODAY'S MAX UV INDEX IS <%= message %>... PLEASE APPLY YOUR SUNSCREEN! ☀️🧴
+                <% }else if(locals.message <= 5){ %>
+                    TODAY'S MAX UV INDEX IS <%= locals.message %>... YOU CAN SKIP YOUR SUNSCREEN TODAY! 😎😎
+                <% } else { %> 
+                    <%= locals.message  %>
+                <% } %>
+            </h3>
+        </div>
+    </div>
+</body>
+</html>
